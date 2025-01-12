@@ -22,16 +22,15 @@ function App() {
   });
   const { user, login } = useUser();
 
-  const fetchUser = async () => {
-    if (cookies.token) {
-      const res = await axios.get('/auth/user');
-      login(res.data.user);
-    }
-  };
-
   useEffect(() => {
+    console.log(cookies)
+    const fetchUser = async () => {
+      if (cookies.token) {
+        const res = await axios.get('/auth/user');
+        login(res.data.user);
+      }
+    };
     fetchUser();
-
   }, []);
 
   const renderManagerRoutes = () => (
