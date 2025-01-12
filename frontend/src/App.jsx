@@ -28,6 +28,8 @@ function App() {
         }
       } catch (error) {
         console.error('Error fetching user:', error);
+      } finally {
+        setLoading(false);
       }
     };
     fetchUser();
