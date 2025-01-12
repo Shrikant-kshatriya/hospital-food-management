@@ -427,7 +427,7 @@ function PatientManager() {
                         </tr>
                     </thead>
                     <tbody className='text-center'>
-                        {patients?.reverse().map((patient, index) => (
+                        {patients?.map((patient, index) => (
                             <tr key={patient._id} className="hover:bg-indigo-50 border-b-4 border-b-white">
                                 <td className="px-4 py-2 border-b">{index + 1}</td>
                                 <td className="px-4 py-2 border-b">{patient.name}</td>
