@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { useUser } from './context/UserContext';
 import Layout from './Layout';
 import Login from './global/Login';
@@ -17,6 +17,7 @@ import ManageMealBox from './pages/deliveryPage/ManageMealBox';
 
 function App() {
   const { user, login } = useUser();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -57,10 +58,15 @@ function App() {
     </Routes>
   );
 
+
+  if (loading) {
+    return <div>Loading...</div>; 
+  }
+
   return (
     <Router>
       <Routes>
-        {user ? (
+      {user ? (
           <Route
             path="/*"
             element={
@@ -72,8 +78,9 @@ function App() {
             }
           />
         ) : (
-          <Route path="/" element={<Login />} />
+          <Route path="/*" element={<Navigate to="/login" />} />
         )}
+        <Route path="/login" element={<Login />} />
       </Routes>
     </Router>
   );
