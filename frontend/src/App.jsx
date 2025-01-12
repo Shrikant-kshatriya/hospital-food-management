@@ -41,6 +41,7 @@ function App() {
 
   const renderManagerRoutes = () => (
     <Routes>
+      <Route path="/" element={<Dashboard />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/manage-patient" element={<ManagePatient />} />
       <Route path="/manage-pantry" element={<ManagePantry />} />
@@ -50,6 +51,7 @@ function App() {
 
   const renderPantryRoutes = () => (
     <Routes>
+      <Route path='/' element={<PantryDashboard />} />
       <Route path='/dashboard' element={<PantryDashboard />} />
       <Route path='/manage-personnel' element={<DeliveryPersonnelManager />} />
       <Route path='/manage-orders' element={<MealOrders />} />
@@ -59,6 +61,7 @@ function App() {
 
   const renderDeliveryPersonnelRoutes = () => (
     <Routes>
+      <Route path='/' element={<DeliveryDashboard />} />
       <Route path='/dashboard' element={<DeliveryDashboard />} />
       <Route path='/boxes' element={<ManageMealBox />} />
     </Routes>
