@@ -21,19 +21,23 @@ function App() {
 
   useEffect(() => {
     const fetchUser = async () => {
-      try {
-        const res = await axios.get('/auth/user');
-        if (res.data.user) {
-          login(res.data.user);
+      if (!user) {
+        try {
+          const res = await axios.get('/auth/user');
+          if (res.data.user) {
+            login(res.data.user);
+          }
+        } catch (error) {
+          console.error('Error fetching user:', error);
+        } finally {
+          setLoading(false);
         }
-      } catch (error) {
-        console.error('Error fetching user:', error);
-      } finally {
+      } else {
         setLoading(false);
       }
     };
     fetchUser();
-  }, [login]);
+  }, [user, login]);
 
   const renderManagerRoutes = () => (
     <Routes>
