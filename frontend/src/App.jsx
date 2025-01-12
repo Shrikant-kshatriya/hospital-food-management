@@ -7,7 +7,6 @@ import Dashboard from './pages/managerPage/Dashboard';
 import PantryDashboard from './pages/pantryStaffPage/Dashboard';
 import DeliveryDashboard from './pages/deliveryPage/Dashboard';
 import axios from 'axios';
-import { useCookies } from 'react-cookie';
 import ManagePatient from './pages/managerPage/ManagePatient';
 import ManagePantry from './pages/managerPage/ManagePantry';
 import MealOrderMonitor from './pages/managerPage/TrackMealOrders';
@@ -17,21 +16,21 @@ import TrackMealBox from './pages/pantryStaffPage/TrackMealBoxes';
 import ManageMealBox from './pages/deliveryPage/ManageMealBox';
 
 function App() {
-  const [cookies] = useCookies(['token'], {
-    doNotParse: true,
-  });
   const { user, login } = useUser();
 
   useEffect(() => {
-    console.log(cookies)
     const fetchUser = async () => {
-      if (cookies.token) {
+      try {
         const res = await axios.get('/auth/user');
-        login(res.data.user);
+        if (res.data.user) {
+          login(res.data.user);
+        }
+      } catch (error) {
+        console.error('Error fetching user:', error);
       }
     };
     fetchUser();
-  }, []);
+  }, [login]);
 
   const renderManagerRoutes = () => (
     <Routes>
