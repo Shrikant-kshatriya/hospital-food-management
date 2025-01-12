@@ -7,8 +7,8 @@
       {
         "src": "/(.*)",
         "headers": {
-          "Access-Control-Allow-Origin": "https://event-calendar-frontend-three.vercel.app",
-          "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+          "Access-Control-Allow-Origin": "https://hospital-food-frontend-8ok838szw.vercel.app",
+          "Access-Control-Allow-Methods": "GET, POST, PATCH, DELETE, OPTIONS",
           "Access-Control-Allow-Headers": "Content-Type, Authorization",
           "Access-Control-Allow-Credentials": "true"
         },
