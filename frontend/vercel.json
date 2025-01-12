@@ -1,0 +1,37 @@
+{
+    "routes": [
+      {
+        "src": "/dashboard",
+        "dest": "/index.html"
+      },
+      {
+        "src": "/manage-patient",
+        "dest": "/index.html"
+      },
+      {
+        "src": "/manage-pantry",
+        "dest": "/index.html"
+      },
+      {
+        "src": "/track-orders",
+        "dest": "/index.html"
+      },
+      {
+        "src": "/manage-personnel",
+        "dest": "/index.html"
+      },
+      {
+        "src": "/manage-orders",
+        "dest": "/index.html"
+      },
+      {
+        "src": "/manage-boxes",
+        "dest": "/index.html"
+      },
+      {
+        "src": "/boxes",
+        "dest": "/index.html"
+      }
+    ]
+  }
+  
