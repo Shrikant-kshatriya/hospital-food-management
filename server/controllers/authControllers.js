@@ -30,9 +30,9 @@ const loginUser = async (req, res) => {
     // setting cookie with expiration of 1 year
     res.cookie("token", token, {
       expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000),
-      httpOnly: false,
+      httpOnly: true, // false for dev
       secure: process.env.NODE_ENV === "production",
-      sameSite: "Lax",
+      sameSite: "None", // Lax for dev
     });
     res.json({
       error: null,
